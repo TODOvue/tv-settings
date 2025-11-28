@@ -1,24 +1,18 @@
 @use 'variables' as *;
+@use 'sass:color';
 
 .tv-setting {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, $dark-card-bg, $dark-body-bg);
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease;
+  width: 3.5rem;
+  height: 3.5rem;
+  z-index: 50;
 
   &.is-disabled {
     opacity: 0.5;
     pointer-events: none;
-  }
-
-  &.is-open {
-    transform: scale(1.05);
   }
 }
 
@@ -28,75 +22,136 @@
   height: 100%;
   border: none;
   border-radius: 50%;
-  background: transparent;
+  background: linear-gradient(135deg, $dark-button-bg, color.adjust($dark-button-bg, $lightness: -10%));
   cursor: pointer;
   color: $dark-button-text;
-  padding: 0;
+  padding: 0.75rem;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+    .tv-setting__icon {
+      transform: rotate(45deg);
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
 
   &:focus-visible {
     outline: 2px solid $light-button-text;
-    outline-offset: 3px;
+    outline-offset: 4px;
+  }
+
+  &[aria-expanded="true"] {
+    background: $dark-card-bg;
+    color: $dark-text;
+
+    .tv-setting__icon {
+      transform: rotate(90deg);
+    }
   }
 }
 
-.tv-setting__gear-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 45%;
-  height: 45%;
-  border-radius: 50%;
-  background: $dark-button-bg;
-  transform: translate(-50%, -50%);
-  box-shadow: inset 0 0 0 3px $dark-button-text;
+.tv-setting__icon {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tv-setting__panel {
   position: absolute;
-  min-width: 12rem;
+  min-width: 14rem;
   padding: 1rem;
   border-radius: 1rem;
-  background: $dark-card-bg;
+  background: rgba($dark-card-bg, 0.95);
+  backdrop-filter: blur(10px);
   color: $dark-text;
-  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  z-index: 10;
+  gap: 0.75rem;
+  z-index: 40;
+  transform-origin: center;
 
   &--top {
     bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(-0.75rem);
+    margin-bottom: 1rem;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
   }
 
   &--bottom {
     top: 100%;
     left: 50%;
-    transform: translate(-50%, 0.75rem);
+    margin-top: 1rem;
+    transform: translateX(-50%);
+    transform-origin: top center;
   }
 
   &--left {
     right: 100%;
     top: 50%;
-    transform: translate(0.75rem, -50%);
+    margin-right: 1rem;
+    transform: translateY(-50%);
+    transform-origin: center right;
   }
 
   &--right {
     left: 100%;
     top: 50%;
-    transform: translate(-0.75rem, -50%);
+    margin-left: 1rem;
+    transform: translateY(-50%);
+    transform-origin: center left;
   }
 }
 
+// Animations
 .tv-setting-panel-enter-active,
 .tv-setting-panel-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tv-setting-panel-enter-from,
 .tv-setting-panel-leave-to {
   opacity: 0;
-  transform: translateY(0.5rem);
+  transform: scale(0.9);
+}
+
+.tv-setting__panel--top.tv-setting-panel-enter-from,
+.tv-setting__panel--top.tv-setting-panel-leave-to {
+  transform: translateX(-50%) translateY(10px) scale(0.9);
+}
+
+.tv-setting__panel--bottom.tv-setting-panel-enter-from,
+.tv-setting__panel--bottom.tv-setting-panel-leave-to {
+  transform: translateX(-50%) translateY(-10px) scale(0.9);
+}
+
+.tv-setting__panel--left.tv-setting-panel-enter-from,
+.tv-setting__panel--left.tv-setting-panel-leave-to {
+  transform: translateY(-50%) translateX(10px) scale(0.9);
+}
+
+.tv-setting__panel--right.tv-setting-panel-enter-from,
+.tv-setting__panel--right.tv-setting-panel-leave-to {
+  transform: translateY(-50%) translateX(-10px) scale(0.9);
 }
 
