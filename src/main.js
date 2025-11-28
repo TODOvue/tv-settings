@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import './style.css'
-import TvSettings from './demo/TvSettings.vue'
+import TvSettings from './demo/Demo.vue'
+import './style.scss'
 
 createApp(TvSettings).mount('#tv-settings')
