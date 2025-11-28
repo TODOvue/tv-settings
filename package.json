@@ -1,0 +1,63 @@
+{
+  "name": "@todovue/tv-settings",
+  "private": false,
+  "author": "Cristhian Daza",
+  "description": "Component to show settings panel in your Vue 3 applications. Easy to integrate and customize.",
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TODOvue/tv-settings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TODOvue/tv-settings/issues"
+  },
+  "keywords": [
+    "todovue",
+    "front-end",
+    "web",
+    "vue",
+    "vuejs",
+    "vue-js",
+    "settings",
+    "show-settings",
+    "vue-settings",
+    "vue-settings-component"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/tv-settings.es.js",
+      "require": "./dist/tv-settings.cjs.js"
+    },
+    "./style.css": "./dist/tv-settings.css",
+    "./nuxt": "./nuxt.js"
+  },
+  "main": "dist/tv-settings.cjs.js",
+  "module": "dist/tv-settings.es.js",
+  "types": "dist/tv-settings.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "nuxt.js"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:demo": "cp README.md public/ && cp settingsLOG.md public/ && VITE_BUILD_TARGET=demo vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "sass": "^1.0.0",
+    "vite": "^7.0.0",
+    "vite-plugin-css-injected-by-js": "^3.0.0",
+    "vite-plugin-dts": "^4.0.0"
+  }
+}
