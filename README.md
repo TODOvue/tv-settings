@@ -5,7 +5,6 @@
 A flexible Vue 3 component with no framework dependencies for creating sliding settings panels from any direction. Perfect for settings, side menus, or any content that needs to slide out from screen edges. Compatible with SPA applications and server-side rendering (SSR) environments like Nuxt 3.
 
 [![npm](https://img.shields.io/npm/v/@todovue/tv-settings.svg)](https://www.npmjs.com/package/@todovue/tv-settings)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ec2565cf-1f9d-4388-b438-e00b499a915b/deploy-status)](https://app.netlify.com/projects/tv-settings/deploys)
 [![npm downloads](https://img.shields.io/npm/dm/@todovue/tv-settings.svg)](https://www.npmjs.com/package/@todovue/tv-settings)
 [![npm total downloads](https://img.shields.io/npm/dt/@todovue/tv-settings.svg)](https://www.npmjs.com/package/@todovue/tv-settings)
 ![License](https://img.shields.io/github/license/TODOvue/tv-settings)
@@ -15,7 +14,7 @@ A flexible Vue 3 component with no framework dependencies for creating sliding s
 ![Last Commit](https://img.shields.io/github/last-commit/TODOvue/tv-settings)
 ![Stars](https://img.shields.io/github/stars/TODOvue/tv-settings?style=social)
 
-> Demo: https://tv-settings.netlify.app/
+> Demo: https://ui.todovue.blog/settings
 
 ---
 ## Table of Contents
