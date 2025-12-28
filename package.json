@@ -4,7 +4,7 @@
   "author": "Cristhian Daza",
   "description": "Component to show settings panel in your Vue 3 applications. Easy to integrate and customize.",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "homepage": "https://ui.todovue.blog/settings",
   "repository": {
