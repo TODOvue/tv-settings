@@ -16,12 +16,11 @@ A flexible Vue 3 component with no framework dependencies for creating sliding s
 
 > Demo: https://ui.todovue.blog/settings
 
----
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
 - [Quick Start (SPA)](#quick-start-spa)
-- [Usage in Nuxt 4 / SSR](#usage-in-nuxt-3--ssr)
+- [Usage in Nuxt 4 / SSR](#usage-in-nuxt-4--ssr)
 - [Component Registration Options](#component-registration-options)
 - [Props](#props)
 - [Events](#events)
@@ -35,7 +34,6 @@ A flexible Vue 3 component with no framework dependencies for creating sliding s
 - [Contributing](#contributing)
 - [License](#license)
 
----
 ## Features
 - Sliding panels from 4 directions: top, right, bottom, left
 - Bidirectional v-model control (controlled mode) or internal state
@@ -49,7 +47,6 @@ A flexible Vue 3 component with no framework dependencies for creating sliding s
 - Tree-shake friendly (Vue marked as external in build)
 - TypeScript declarations included
 
----
 ## Installation
 Using npm:
 ```bash
@@ -64,7 +61,6 @@ Using pnpm:
 pnpm add @todovue/tv-settings
 ```
 
----
 ## Quick Start (SPA)
 Global registration (main.js / main.ts):
 ```js
@@ -96,7 +92,6 @@ import '@todovue/tv-settings/style.css'
 </template>
 ```
 
----
 ## Usage in Nuxt 4 / SSR
 ```ts
 // nuxt.config.ts
@@ -122,7 +117,6 @@ import '@todovue/tv-settings/style.css'
 </script>
 ```
 
----
 ## Component Registration Options
 | Approach                                                              | When to use                                  |
 |-----------------------------------------------------------------------|----------------------------------------------|
@@ -130,7 +124,6 @@ import '@todovue/tv-settings/style.css'
 | Named local import `{ TvSettings }`                                   | Isolated contexts / code-split               |
 | Default direct import `import TvSettings from '@todovue/tv-settings'` | Single use or manual registration            |
 
----
 ## Props
 | Prop           | Type    | Default         | Description                                                             |
 |----------------|---------|-----------------|-------------------------------------------------------------------------|
@@ -139,8 +132,8 @@ import '@todovue/tv-settings/style.css'
 | disabled       | Boolean | false           | Disables the open button.                                               |
 | closeOnOutside | Boolean | true            | If `true`, the panel closes when clicking outside.                      |
 | label          | String  | 'Open settings' | ARIA label for the gear button (accessibility).                         |
+| title          | String  | null            | Optional title to display in the header.                                |
 
----
 ## Events
 | Event (kebab)       | Emit (camel)        | Description                             |
 |---------------------|---------------------|-----------------------------------------|
@@ -157,12 +150,12 @@ Usage:
 />
 ```
 
----
 ## Slots
-| Slot    | Bindings                     | Description                                |
-|---------|------------------------------|--------------------------------------------|
-| header  | —                            | Panel header content (optional).           |
-| default | `{ direction, close, open }` | Main panel content with access to methods. |
+| Slot    | Bindings                                     | Description                                |
+|---------|----------------------------------------------|--------------------------------------------|
+| trigger | `{ isOpen, toggle, open, close }`            | Replace the default gear button.           |
+| header  | —                                            | Panel header content (optional).           |
+| default | `{ direction, close, open }`                 | Main panel content with access to methods. |
 
 ### Slot Examples
 Header slot:
@@ -184,7 +177,18 @@ Default slot with methods:
 </TvSettings>
 ```
 
----
+Trigger slot:
+```vue
+<TvSettings>
+  <template #trigger="{ toggle }">
+    <button @click="toggle">My Custom Button</button>
+  </template>
+  <template #default>
+    <p>Content</p>
+  </template>
+</TvSettings>
+```
+
 ## Directions
 The component supports 4 directions:
 - `top` - Panel slides from top
@@ -202,7 +206,6 @@ Examples:
 
 If an invalid direction is provided, the component will show a console warning and use `'right'` as default.
 
----
 ## State Control
 ### Uncontrolled Mode (Internal State)
 By default, the component manages its own state:
@@ -238,7 +241,6 @@ const isOpen = ref(false)
 </TvSettings>
 ```
 
----
 ## Customization (Styles / Themes)
 The component uses CSS with BEM classes. You can override styles:
 
@@ -271,7 +273,6 @@ Inline styles:
 </TvSettings>
 ```
 
----
 ## Accessibility
 - The gear button includes `aria-label`, `aria-pressed` and `aria-expanded`.
 - You can customize the aria-label text with the `label` prop.
@@ -286,14 +287,12 @@ Example:
 </TvSettings>
 ```
 
----
 ## SSR Notes
 - No direct DOM access (`window` / `document`) in source code → SSR-safe.
 - Styles are automatically applied when importing the library.
 - Make sure to import `@todovue/tv-settings/style.css` in an SSR-compatible entry point (plugin or layout).
 - Event listeners (outside click, keydown) are registered in `onMounted` to avoid SSR errors.
 
----
 ## Development
 ```bash
 git clone https://github.com/TODOvue/tv-settings.git
@@ -304,15 +303,12 @@ npm run build   # build library
 ```
 Local demo is served from Vite using `index.html` + examples in `src/demo`.
 
----
 ## Contributing
 PRs and issues are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
----
 ## License
 MIT © TODOvue
 
----
 ### Attributions
 Developed for the TODOvue component ecosystem
 

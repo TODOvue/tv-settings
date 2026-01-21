@@ -132,6 +132,16 @@
   }
 }
 
+.tv-setting__header {
+  margin-bottom: 1rem;
+}
+
+.tv-setting__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .tv-setting-panel-enter-active,
 .tv-setting-panel-leave-active {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
