@@ -5,6 +5,13 @@ All notable changes to `@todovue/tv-settings` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Dependencies
+- Updated `@todovue/tv-demo` to `^1.4.4`.
+- Updated `sass` to `^1.97.2`.
+- Updated `vite` to `^7.3.1`.
+
 ## [1.0.2] - 2025-12-27
 
 ### Added
