@@ -12,6 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `sass` to `^1.97.2`.
 - Updated `vite` to `^7.3.1`.
 
+## [1.0.3] - 2026-01-21
+
+### Added
+- Added `title` prop to easily add a header title to the panel.
+- Added `trigger` slot to allow full customization of the toggle button.
+
+### Dependencies
+- Updated `@todovue/tv-demo` to `^1.4.4`.
+- Updated `sass` to `^1.97.2`.
+- Updated `vite` to `^7.3.1`.
+
 ## [1.0.2] - 2025-12-27
 
 ### Added
@@ -63,6 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compatible with Nuxt 3 plugin system
 - Demo playground at https://tv-settings.netlify.app/
 
+[1.0.3]: https://github.com/TODOvue/tv-settings/pull/4/files
 [1.0.2]: https://github.com/TODOvue/tv-settings/pull/3/files
 [1.0.1]: https://github.com/TODOvue/tv-settings/pull/2/files
 [1.0.0]: https://github.com/TODOvue/tv-settings/pull/1/files
