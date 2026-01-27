@@ -87,6 +87,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compatible with Nuxt 3 plugin system
 - Demo playground at https://tv-settings.netlify.app/
 
+[1.0.4]: https://github.com/TODOvue/tv-settings/pull/5/files
 [1.0.3]: https://github.com/TODOvue/tv-settings/pull/4/files
 [1.0.2]: https://github.com/TODOvue/tv-settings/pull/3/files
 [1.0.1]: https://github.com/TODOvue/tv-settings/pull/2/files

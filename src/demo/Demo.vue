@@ -15,6 +15,6 @@ const TvSettings = defineAsyncComponent(/* webpackChunkName: "tvSettings" */() =
     npm-install="@todovue/tv-settings"
     source-link="https://github.com/TODOvue/tv-settings"
     url-clone="https://github.com/TODOvue/tv-settings.git"
-    version="1.0.3"
+    version="1.0.4"
   />
 </template>
