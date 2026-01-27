@@ -8,6 +8,7 @@
   "type": "module",
   "homepage": "https://ui.todovue.blog/settings",
   "repository": {
+    "name": "@todovue/tv-settings",
     "type": "git",
     "url": "git+https://github.com/TODOvue/tv-settings.git"
   },
@@ -32,16 +33,21 @@
       "require": "./dist/tv-settings.cjs.js"
     },
     "./style.css": "./dist/tv-settings.css",
-    "./nuxt": "./nuxt.js"
+    "./nuxt": "./nuxt.js",
+    "./demo": {
+      "import": "./src/demo/Demo.vue"
+    }
   },
   "main": "dist/tv-settings.cjs.js",
   "module": "dist/tv-settings.es.js",
   "types": "dist/tv-settings.d.ts",
   "files": [
-    "dist",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md",
-    "nuxt.js"
+    "dist",
+    "nuxt.js",
+    "src"
   ],
   "engines": {
     "node": ">=20.19.0"
@@ -53,16 +59,15 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:demo": "cp README.md public/ && cp CHANGELOG.md public/ && VITE_BUILD_TARGET=demo vite build"
+    "build": "vite build"
   },
   "peerDependencies": {
-    "vue": "^3.5.26"
+    "vue": "^3.5.27"
   },
   "devDependencies": {
-    "@todovue/tv-demo": "^1.4.4",
+    "@todovue/tv-demo": "^1.4.11",
     "@vitejs/plugin-vue": "^6.0.3",
-    "sass": "^1.97.2",
+    "sass": "^1.97.3",
     "vite": "^7.3.1",
     "vite-plugin-dts": "^4.5.4"
   }
